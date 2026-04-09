@@ -1,589 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Trinkesh Nimsarkar — Senior BI Developer & Microsoft Fabric Engineer</title>
-<meta name="description" content="Senior BI Developer with 4+ years in healthcare analytics. Expert in Power BI, DAX, Microsoft Fabric, and Medallion Architecture." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Trinkesh Nimsarkar — Senior BI Developer</title>
+<meta name="description" content="Senior BI Developer & Microsoft Fabric Engineer. I turn complex healthcare data into decisions that matter."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-    --ink: #111;
-    --muted: #666;
-    --light: #bbb;
-    --line: #e8e8e8;
-    --surface: #f8f8f6;
-    --card: #fff;
-    --accent: #1a5e9e;
-    --accent-light: #e8f0f9;
-    --green: #1a7a4a;
-    --green-bg: #e6f4ed;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--sans); color: var(--ink); background: var(--card); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fs:'Syne',system-ui,sans-serif;
+  --bg:#faf9f6;
+  --bg2:#f3f1ec;
+  --bg3:#edeae3;
+  --ink:#1a1714;
+  --ink2:#6b6560;
+  --ink3:#b0aa9f;
+  --line:#e4e0d8;
+  --blue:#2356d4;
+  --blue-bg:#edf1fc;
+  --blue-mid:#4a7cff;
+  --teal:#0d8c6e;
+  --teal-bg:#e6f4f0;
+  --amber:#c47c0a;
+  --amber-bg:#fdf4e3;
+  --rose:#c53030;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fs);background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-  /* ── NAV ── */
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); z-index: 100; }
-  .nav-logo { font-family: var(--serif); font-size: 1.2rem; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color .2s; }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-hire { font-size: 0.78rem; background: var(--ink); color: #fff; padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: opacity .2s; }
-  .nav-hire:hover { opacity: .8; }
+/* CURSOR */
+.cur{position:fixed;width:10px;height:10px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .15s;mix-blend-mode:multiply}
+.cur-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(35,86,212,.3);border-radius:50%;pointer-events:none;z-index:9998;transition:transform .2s ease,opacity .2s}
 
-  /* ── HERO ── */
-  .hero { padding: 7rem 3rem 6rem; border-bottom: 1px solid var(--line); }
-  .hero-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 260px; gap: 5rem; align-items: end; }
-  .hero-tag { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 4.4rem); line-height: 1.06; letter-spacing: -0.02em; font-weight: 400; }
-  .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub { margin-top: 1.5rem; font-size: 1rem; color: var(--muted); line-height: 1.85; max-width: 520px; }
-  .hero-actions { margin-top: 2.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-  .btn-primary { background: var(--ink); color: #fff; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.72rem 1.5rem; border-radius: 4px; text-decoration: none; transition: opacity .2s; }
-  .btn-primary:hover { opacity: .8; }
-  .btn-outline { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color .2s, border-color .2s; }
-  .btn-outline:hover { color: var(--ink); border-color: var(--ink); }
-  .hero-stats { display: flex; flex-direction: column; gap: 0.85rem; }
-  .stat-box { border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem 1.5rem; text-align: center; }
-  .stat-num { font-family: var(--serif); font-size: 2.2rem; line-height: 1; display: block; }
-  .stat-lbl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); display: block; margin-top: 0.25rem; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3rem;transition:background .35s,box-shadow .35s}
+nav.scrolled{background:rgba(250,249,246,.94);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.logo{font-family:var(--fd);font-size:1.4rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-0.01em}
+.logo em{font-style:italic;color:var(--blue);font-weight:300}
+.nav-links{display:flex;gap:2.25rem;list-style:none}
+.nav-links a{font-size:0.75rem;color:var(--ink2);text-decoration:none;letter-spacing:0.09em;text-transform:uppercase;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#fff;background:var(--ink);padding:0.6rem 1.4rem;border-radius:100px;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.82}
 
-  /* ── LAYOUT ── */
-  section { padding: 5.5rem 3rem; }
-  .container { max-width: 960px; margin: 0 auto; }
-  .sec-eye { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
-  .sec-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 3rem; }
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:80px}
+.hero-left{padding:5rem 3.5rem 5rem 3rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);position:relative}
+.hero-left::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 60%,rgba(35,86,212,.045) 0%,transparent 65%);pointer-events:none}
+.hero-dot-row{display:flex;align-items:center;gap:0.75rem;margin-bottom:2.25rem}
+.hdot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.hero h1{font-family:var(--fd);font-size:clamp(3.2rem,6vw,5.8rem);line-height:1.05;letter-spacing:-0.025em;font-weight:300;margin-bottom:2rem;position:relative;z-index:1}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero h1 .indent{display:block;padding-left:5rem}
+.hero-desc{font-size:1rem;color:var(--ink2);line-height:1.85;max-width:420px;margin-bottom:2.5rem;position:relative;z-index:1}
+.hero-desc strong{color:var(--ink);font-weight:600}
+.hero-chips{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:3rem;position:relative;z-index:1}
+.hchip{font-size:0.7rem;font-weight:600;letter-spacing:0.05em;padding:0.28rem 0.8rem;border-radius:100px;border:1.5px solid var(--line);color:var(--ink2);transition:all .2s}
+.hchip.on{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+.hero-btns{display:flex;gap:0.85rem;position:relative;z-index:1}
+.btn-fill{background:var(--blue);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:0.8rem 2rem;border-radius:100px;text-decoration:none;transition:opacity .2s;box-shadow:0 4px 18px rgba(35,86,212,.22)}
+.btn-fill:hover{opacity:.87}
+.btn-ghost{font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink2);text-decoration:none;padding:0.8rem 1.5rem;border-radius:100px;border:1.5px solid var(--line);transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
 
-  /* ── SUMMARY ── */
-  .summary { background: var(--surface); }
-  .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  .summary-text p { font-size: 0.97rem; color: var(--muted); line-height: 1.9; margin-bottom: 1rem; }
-  .summary-text p:last-child { margin-bottom: 0; }
-  .summary-quote { margin-top: 1.75rem; border-left: 2px solid var(--accent); padding-left: 1.1rem; font-style: italic; color: var(--ink); font-size: 0.95rem; line-height: 1.75; }
-  .summary-sidebar { display: flex; flex-direction: column; gap: 0.7rem; }
-  .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.1rem; border: 1px solid var(--line); border-radius: 8px; background: var(--card); gap: 1rem; }
-  .dk { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); white-space: nowrap; }
-  .dv { font-size: 0.875rem; font-weight: 500; text-align: right; }
-  .available { color: var(--green); }
+/* HERO RIGHT */
+.hero-right{display:flex;flex-direction:column;background:var(--bg2)}
+.hstat{flex:1;padding:3rem 3rem;border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transition:background .25s}
+.hstat:hover{background:var(--bg3)}
+.hstat:last-child{border-bottom:none}
+.hstat-bg-num{position:absolute;bottom:-1rem;right:1.5rem;font-family:var(--fd);font-size:9rem;font-weight:600;color:rgba(0,0,0,.04);line-height:1;pointer-events:none;user-select:none}
+.hstat-num{font-family:var(--fd);font-size:3.8rem;line-height:1;color:var(--ink);font-weight:300;margin-bottom:0.3rem;position:relative;z-index:1}
+.hstat-lbl{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink2);font-weight:600;position:relative;z-index:1}
+.hstat-sub{font-size:0.8rem;color:var(--ink3);margin-top:0.2rem;position:relative;z-index:1}
 
-  /* ── WHAT I DO ── */
-  .what-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-  .what-card { border: 1px solid var(--line); border-radius: 10px; padding: 1.6rem 1.5rem; }
-  .what-icon { font-size: 1.4rem; margin-bottom: 1rem; display: block; }
-  .what-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.5rem; }
-  .what-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.75; }
+/* MARQUEE */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0.9rem 0;overflow:hidden;background:var(--bg3)}
+.mtrack{display:inline-flex;animation:mq 30s linear infinite}
+.mitem{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;color:var(--ink3);padding:0 2.5rem;display:inline-flex;align-items:center;gap:2.5rem}
+.mitem::after{content:'✦';color:var(--blue);font-size:0.45rem;opacity:.6}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  /* ── SKILLS ── */
-  .skills { background: var(--surface); }
-  .skills-wrap { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--card); }
-  .skills-category { padding: 1.2rem 1.75rem; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 160px 1fr; gap: 2rem; align-items: center; }
-  .skills-category:last-child { border-bottom: none; }
-  .skill-cat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-  .skill-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-  .pill { font-size: 0.775rem; padding: 0.28rem 0.8rem; border: 1px solid var(--line); border-radius: 100px; color: var(--ink); background: var(--card); }
-  .pill.strong { border-color: var(--accent); color: var(--accent); background: var(--accent-light); font-weight: 500; }
+/* SECTIONS */
+.s{padding:7rem 3rem}
+.wrap{max-width:1080px;margin:0 auto}
+.s-eye{display:inline-flex;align-items:center;gap:0.65rem;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:0.85rem}
+.s-eye::before{content:'';width:20px;height:1.5px;background:var(--blue)}
+.s-title{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;letter-spacing:-0.02em;line-height:1.15;margin-bottom:1rem}
+.s-title em{font-style:italic;color:var(--blue)}
+.s-sub{font-size:0.95rem;color:var(--ink2);line-height:1.8;max-width:520px;margin-bottom:3.5rem}
 
-  /* ── PROJECTS ── */
-  .project-item { display: grid; grid-template-columns: 52px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--line); }
-  .project-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .proj-num { font-family: var(--serif); font-size: 1.1rem; color: var(--light); padding-top: 2px; }
-  .proj-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
-  .proj-header h3 { font-size: 1rem; font-weight: 500; }
-  .proj-period { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
-  .proj-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.75rem; }
-  .proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
-  .proj-bullets li { font-size: 0.85rem; color: var(--muted); padding-left: 1.1rem; position: relative; line-height: 1.7; }
-  .proj-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.72rem; top: 0.08rem; }
-  .proj-metrics { display: flex; gap: 2rem; flex-wrap: wrap; padding: 0.9rem 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; margin-bottom: 0.9rem; }
-  .metric { display: flex; flex-direction: column; gap: 0.12rem; }
-  .mval { font-size: 0.95rem; font-weight: 500; color: var(--accent); }
-  .mlbl { font-size: 0.66rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-  .proj-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.85rem; }
-  .tag { font-size: 0.67rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.22rem 0.68rem; border: 1px solid var(--line); border-radius: 100px; color: var(--muted); }
-  .proj-link { display: inline-block; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); padding-bottom: 1px; transition: border-color .2s; }
-  .proj-link:hover { border-color: var(--accent); }
+/* ABOUT */
+.about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start}
+.about-body p{font-size:1rem;color:var(--ink2);line-height:1.9;margin-bottom:1.1rem}
+.about-body p strong{color:var(--ink);font-weight:600}
+.quote-card{margin-top:2.5rem;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:2rem 2rem 1.5rem;position:relative;overflow:hidden}
+.quote-card::before{content:'"';font-family:var(--fd);font-size:8rem;line-height:0.7;color:var(--blue);opacity:.1;position:absolute;top:1.2rem;left:1.2rem}
+.quote-card p{font-family:var(--fd);font-size:1.2rem;font-style:italic;color:var(--ink);line-height:1.65;font-weight:300;position:relative;z-index:1}
+.quote-card footer{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink3);font-weight:600;margin-top:1rem;font-style:normal}
+.info-stack{display:flex;flex-direction:column;gap:0.6rem}
+.irow{display:grid;grid-template-columns:100px 1fr;gap:1rem;align-items:center;padding:0.85rem 1.1rem;background:var(--bg);border:1px solid var(--line);border-radius:10px;transition:border-color .2s}
+.irow:hover{border-color:rgba(35,86,212,.25)}
+.ik{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink3);font-weight:700}
+.iv{font-size:0.875rem;font-weight:600;color:var(--ink)}
+.iv.green{color:var(--teal)}
 
-  /* ── EXPERIENCE ── */
-  .exp { background: var(--surface); }
-  .exp-item { padding: 2.5rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 200px 1fr; gap: 3rem; }
-  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .exp-meta { display: flex; flex-direction: column; gap: 0.3rem; padding-top: 3px; }
-  .exp-date { font-size: 0.78rem; color: var(--muted); }
-  .exp-loc { font-size: 0.78rem; color: var(--muted); }
-  .exp-badge { display: inline-block; font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; background: var(--green-bg); color: var(--green); padding: 0.18rem 0.6rem; border-radius: 4px; margin-top: 0.4rem; width: fit-content; }
-  .exp-title { font-size: 1rem; font-weight: 500; margin-bottom: 0.2rem; }
-  .exp-company { font-size: 0.82rem; color: var(--accent); margin-bottom: 0.2rem; }
-  .exp-domain { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.85rem; }
-  .exp-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.85rem; }
-  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-  .exp-bullets li { font-size: 0.85rem; color: var(--muted); padding-left: 1.1rem; position: relative; line-height: 1.7; }
-  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.72rem; top: 0.08rem; }
-  .impact-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.25rem; padding: 0.9rem 1.25rem; background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
+/* SERVICES / WHAT I DO */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--line);border:1.5px solid var(--line);border-radius:20px;overflow:hidden}
+.srv{background:var(--bg);padding:2.5rem 2rem;transition:background .25s}
+.srv:hover{background:var(--blue-bg)}
+.srv-n{font-family:var(--fd);font-size:2rem;font-style:italic;color:var(--line);font-weight:300;line-height:1;margin-bottom:1.25rem;transition:color .25s}
+.srv:hover .srv-n{color:rgba(35,86,212,.2)}
+.srv-icon{font-size:1.6rem;margin-bottom:0.75rem;display:block}
+.srv-t{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.6rem}
+.srv-d{font-size:0.83rem;color:var(--ink2);line-height:1.78}
 
-  /* ── CERTIFICATIONS ── */
-  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .cert-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem; display: flex; flex-direction: column; }
-  .cert-badge { display: inline-block; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--accent-light); color: var(--accent); padding: 0.18rem 0.65rem; border-radius: 4px; margin-bottom: 0.85rem; font-weight: 500; width: fit-content; }
-  .cert-code { font-size: 1.1rem; font-family: var(--serif); font-weight: 400; color: var(--ink); margin-bottom: 0.4rem; }
-  .cert-name { font-size: 0.85rem; color: var(--muted); line-height: 1.5; flex: 1; margin-bottom: 0.85rem; }
-  .cert-status { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.68rem; color: var(--green); background: var(--green-bg); padding: 0.2rem 0.65rem; border-radius: 4px; width: fit-content; }
+/* NUMBERS */
+.nums{background:var(--ink);position:relative;overflow:hidden}
+.nums::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(35,86,212,.2) 0%,transparent 60%)}
+.nums .s-eye{color:rgba(255,255,255,.35)}
+.nums .s-eye::before{background:rgba(255,255,255,.35)}
+.nums .s-title{color:#fff}
+.nums-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;margin-top:3.5rem}
+.nc{background:rgba(255,255,255,.03);padding:3rem 2rem;text-align:left;position:relative;overflow:hidden;transition:background .25s}
+.nc:hover{background:rgba(255,255,255,.06)}
+.nc-ghost{position:absolute;bottom:-1.5rem;right:1rem;font-family:var(--fd);font-size:7rem;font-weight:600;color:rgba(255,255,255,.03);line-height:1;pointer-events:none}
+.nc-num{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.8rem);color:#fff;font-weight:300;line-height:1;margin-bottom:0.5rem;position:relative;z-index:1}
+.nc-num span{font-size:1.4rem;opacity:.4}
+.nc-lbl{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:0.4rem;position:relative;z-index:1}
+.nc-desc{font-size:0.8rem;color:rgba(255,255,255,.28);line-height:1.55;position:relative;z-index:1}
 
-  /* ── CONTACT ── */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .contact-text .sec-title { margin-bottom: 0.75rem; }
-  .contact-text p { font-size: 0.95rem; color: var(--muted); line-height: 1.85; }
-  .contact-links { display: flex; flex-direction: column; gap: 0.7rem; }
-  .contact-row { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; color: var(--ink); transition: background .15s, border-color .15s; }
-  .contact-row:hover { background: var(--surface); border-color: #ccc; }
-  .cr-icon { width: 34px; height: 34px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
-  .cr-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-  .cr-val { font-size: 0.875rem; font-weight: 500; margin-top: 0.1rem; }
+/* SKILLS */
+.skills-bg{background:var(--bg2)}
+.skills-layout{display:grid;grid-template-columns:340px 1fr;gap:5rem;align-items:start}
+.skills-intro p{font-size:0.97rem;color:var(--ink2);line-height:1.88;margin-bottom:1rem}
+.sg{margin-bottom:2rem}
+.sg:last-child{margin-bottom:0}
+.sg-head{display:flex;align-items:center;gap:0.6rem;font-size:0.64rem;text-transform:uppercase;letter-spacing:0.14em;font-weight:700;color:var(--ink3);margin-bottom:0.85rem}
+.sg-head::after{content:'';flex:1;height:1px;background:var(--line)}
+.pills{display:flex;flex-wrap:wrap;gap:0.45rem}
+.pl{font-size:0.8rem;padding:0.35rem 0.95rem;border-radius:100px;font-weight:600;transition:all .2s;cursor:default}
+.pl.c{background:var(--blue-bg);color:var(--blue);border:1.5px solid rgba(35,86,212,.2)}
+.pl.c:hover{background:rgba(35,86,212,.15)}
+.pl.s{background:var(--bg);color:var(--ink2);border:1.5px solid var(--line)}
+.pl.s:hover{border-color:rgba(0,0,0,.2);color:var(--ink)}
 
-  /* ── FOOTER ── */
-  footer { padding: 2rem 3rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--muted); flex-wrap: wrap; gap: 0.5rem; }
-  footer a { color: var(--muted); text-decoration: none; }
-  footer a:hover { color: var(--ink); }
+/* PROJECTS */
+.proj-stack{display:flex;flex-direction:column;gap:1.5rem;margin-top:4rem}
+.pcard{background:var(--bg2);border:1.5px solid var(--line);border-radius:22px;overflow:hidden;transition:box-shadow .3s,transform .3s,border-color .3s}
+.pcard:hover{box-shadow:0 12px 40px rgba(0,0,0,.07);transform:translateY(-4px);border-color:rgba(35,86,212,.2)}
+.pcard-top{padding:2.25rem 2.5rem 0;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start}
+.pcard-idx{font-family:var(--fd);font-size:0.9rem;font-style:italic;color:var(--ink3);margin-bottom:0.4rem}
+.pcard-title{font-family:var(--fd);font-size:1.8rem;font-weight:400;letter-spacing:-0.02em;line-height:1.2;color:var(--ink)}
+.pperiod{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:var(--ink3);background:var(--bg3);border:1px solid var(--line);padding:0.3rem 0.85rem;border-radius:100px;white-space:nowrap;margin-top:0.4rem}
+.pcard-desc{font-size:0.9rem;color:var(--ink2);line-height:1.8;padding:1rem 2.5rem 0}
+.pbullets{list-style:none;padding:0.75rem 2.5rem 0;display:flex;flex-direction:column;gap:0.4rem}
+.pbullets li{font-size:0.84rem;color:var(--ink2);padding-left:1.1rem;position:relative;line-height:1.72}
+.pbullets li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:0.72rem;top:.1rem}
+.pbullets li strong{color:var(--ink);font-weight:600}
+.pmetrics{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:1.5rem}
+.pm{flex:1;padding:1.25rem 1rem;border-right:1px solid var(--line);text-align:center}
+.pm:last-child{border-right:none}
+.pmv{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--blue);display:block;line-height:1}
+.pml{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);font-weight:700;margin-top:0.2rem;display:block}
+.pcard-foot{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;flex-wrap:wrap;gap:0.75rem}
+.ptags{display:flex;gap:0.4rem;flex-wrap:wrap}
+.ptag{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.05em;padding:0.2rem 0.65rem;border:1px solid var(--line);border-radius:100px;color:var(--ink3);font-weight:600}
+.plink{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.07em;font-weight:700;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:0.3rem;transition:gap .2s}
+.plink:hover{gap:.6rem}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { display: none; }
-    .hero { padding: 4rem 1.25rem; }
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-stats { flex-direction: row; }
-    .stat-box { flex: 1; }
-    section { padding: 3.5rem 1.25rem; }
-    .summary-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .what-grid { grid-template-columns: 1fr; }
-    .skills-category { grid-template-columns: 1fr; gap: 0.75rem; }
-    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    .cert-grid { grid-template-columns: 1fr; }
-    .project-item { grid-template-columns: 36px 1fr; gap: 1rem; }
-    footer { flex-direction: column; align-items: flex-start; }
-  }
+/* EXPERIENCE */
+.exp-bg{background:var(--bg2)}
+.exp-card{border:1.5px solid var(--line);border-radius:22px;overflow:hidden;background:var(--bg)}
+.exp-banner{background:var(--blue);padding:2.5rem 3rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
+.exp-banner-left{}
+.exp-co{font-family:var(--fd);font-size:2.8rem;font-weight:300;font-style:italic;color:#fff;letter-spacing:-0.02em;line-height:1;margin-bottom:0.5rem}
+.exp-role{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:1rem}
+.exp-tag{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;padding:0.3rem 0.9rem;border-radius:100px}
+.exp-kpis{display:flex;gap:2.5rem}
+.ek{display:flex;flex-direction:column;align-items:flex-end}
+.ek-v{font-family:var(--fd);font-size:2.2rem;color:#fff;font-weight:300;line-height:1}
+.ek-l{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,.5);font-weight:700;margin-top:0.15rem}
+.exp-body{padding:2.5rem 3rem}
+.exp-domain{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.dchip{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.07em;font-weight:700;padding:0.25rem 0.75rem;border-radius:100px;border:1.5px solid var(--line);color:var(--ink2)}
+.exp-intro{font-size:0.92rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
+.exp-list li{font-size:0.85rem;color:var(--ink2);padding-left:1.2rem;position:relative;line-height:1.72}
+.exp-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:0.72rem;top:.1rem}
+.exp-list li strong{color:var(--ink);font-weight:600}
+
+/* CERTS */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.ccard{background:var(--bg2);border:1.5px solid var(--line);border-radius:20px;padding:2.25rem;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-mid))}
+.ccard:hover{border-color:rgba(35,86,212,.3);transform:translateY(-4px)}
+.ccard-ms{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.75rem}
+.ms-sq-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5px;width:20px;height:20px}
+.ms-sq{border-radius:1.5px}
+.ccard-certified{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink3);font-weight:700}
+.ccode{font-family:var(--fd);font-size:3.2rem;font-weight:300;color:var(--ink);line-height:1;margin-bottom:0.4rem}
+.cname{font-size:0.87rem;color:var(--ink2);line-height:1.5;margin-bottom:1.25rem;font-weight:500}
+.cbadge{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.68rem;color:var(--teal);background:var(--teal-bg);padding:0.25rem 0.75rem;border-radius:100px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em}
+
+/* CONTACT */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.contact-text p{font-size:0.97rem;color:var(--ink2);line-height:1.88;margin-bottom:1.1rem}
+.contact-text p strong{color:var(--ink);font-weight:600}
+.contact-links{display:flex;flex-direction:column;gap:0.65rem}
+.cl{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);background:var(--bg2);transition:border-color .2s,transform .2s,background .2s}
+.cl:hover{border-color:rgba(35,86,212,.3);transform:translateX(5px);background:var(--blue-bg)}
+.cl-i{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.cl-l{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink3);font-weight:700}
+.cl-v{font-size:0.875rem;font-weight:600;color:var(--ink);margin-top:0.06rem}
+
+/* FOOTER */
+footer{padding:2.5rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;background:var(--bg)}
+footer p{font-size:0.77rem;color:var(--ink3);font-weight:500}
+footer a{color:var(--ink3);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--ink)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.up{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding-top:70px;min-height:auto}
+  .hero-left{padding:3rem 1.25rem;border-right:none;border-bottom:1px solid var(--line)}
+  .hero-right{display:grid;grid-template-columns:repeat(3,1fr)}
+  .hstat{padding:1.75rem 1.25rem;border-bottom:none;border-right:1px solid var(--line)}
+  .hstat:last-child{border-right:none}
+  .hstat-num{font-size:2.4rem}
+  .s{padding:4.5rem 1.25rem}
+  .about-grid,.skills-layout,.contact-layout{grid-template-columns:1fr;gap:3rem}
+  .srv-grid{grid-template-columns:1fr}
+  .nums-grid{grid-template-columns:1fr 1fr}
+  .cert-grid{grid-template-columns:1fr}
+  .exp-banner{grid-template-columns:1fr;gap:1.5rem}
+  .exp-kpis{justify-content:flex-start}
+  .exp-body{padding:1.75rem 1.5rem}
+  .pcard-top{grid-template-columns:1fr}
+  footer{flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
 
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Trinkesh N.</a>
+<nav id="nav">
+  <a href="#" class="logo">Trinkesh <em>N.</em></a>
   <ul class="nav-links">
-    <li><a href="#summary">About</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#certs">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:trinkeshn@gmail.com" class="nav-hire">Hire me</a>
+  <a href="mailto:trinkeshn@gmail.com" class="nav-cta">Hire me</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-inner">
-    <div>
-      <p class="hero-tag">Senior BI Developer &nbsp;·&nbsp; BI Engineer &nbsp;·&nbsp; Microsoft Fabric Data Engineer</p>
-      <h1>Healthcare data<br>made <em>clear</em></h1>
-      <p class="hero-sub">I architect end-to-end analytics solutions on Microsoft Fabric — from Bronze ingestion pipelines to Gold-layer Power BI dashboards that clinicians and executives depend on daily.</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn-primary">View projects</a>
-        <a href="mailto:trinkeshn@gmail.com" class="btn-outline">trinkeshn@gmail.com →</a>
-      </div>
+  <div class="hero-left">
+    <div class="hero-dot-row">
+      <div class="hdot"></div>
+      <span class="hero-eyebrow">Senior BI Developer · Microsoft Fabric Engineer · Nagpur, India</span>
     </div>
-    <div class="hero-stats">
-      <div class="stat-box">
-        <span class="stat-num">4+</span>
-        <span class="stat-lbl">Years in healthcare analytics</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">30+</span>
-        <span class="stat-lbl">Dashboards in production</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">3×</span>
-        <span class="stat-lbl">Microsoft certified</span>
-      </div>
+    <h1>
+      I turn <em>messy</em><br>
+      <span class="indent">healthcare</span><br>
+      data into <em>truth</em>.
+    </h1>
+    <p class="hero-desc">
+      <strong>4+ years</strong> building end-to-end Lakehouse pipelines, high-performance DAX models, and <strong>30+ production Power BI dashboards</strong> that clinicians and executives rely on every single day.
+    </p>
+    <div class="hero-chips">
+      <span class="hchip on">Power BI</span>
+      <span class="hchip on">Microsoft Fabric</span>
+      <span class="hchip on">DAX</span>
+      <span class="hchip">PySpark</span>
+      <span class="hchip">Delta Lake</span>
+      <span class="hchip">Medallion Arch.</span>
+      <span class="hchip">Healthcare Analytics</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-fill">See my work</a>
+      <a href="#contact" class="btn-ghost">Let's talk</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hstat">
+      <div class="hstat-bg-num">30+</div>
+      <div class="hstat-num">30<span style="font-size:1.8rem;opacity:.35">+</span></div>
+      <div class="hstat-lbl">Dashboards in production</div>
+      <div class="hstat-sub">Power BI · Healthcare clients</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-bg-num">₹380</div>
+      <div class="hstat-num" style="font-size:3rem">₹380<span style="font-size:1.4rem;opacity:.35">Cr</span></div>
+      <div class="hstat-lbl">Financial data surfaced</div>
+      <div class="hstat-sub">Claims, billing & revenue analytics</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-bg-num">3×</div>
+      <div class="hstat-num">3<span style="font-size:1.8rem;opacity:.35">×</span></div>
+      <div class="hstat-lbl">Microsoft certified</div>
+      <div class="hstat-sub">PL-300 · DP-600 · DP-700</div>
     </div>
   </div>
 </div>
 
-<!-- SUMMARY / ABOUT -->
-<section class="summary" id="summary">
-  <div class="container">
-    <p class="sec-eye">Professional summary</p>
-    <div class="summary-grid">
-      <div class="summary-text">
-        <p>I'm Trinkesh Nimsarkar — a Senior BI Developer at Konverge.AI specialising in end-to-end healthcare analytics. I design complete data solutions that span from raw source ingestion all the way to production-grade Power BI dashboards that stakeholders rely on every day.</p>
-        <p>My stack is the full modern Microsoft data platform: Medallion Architecture on Microsoft Fabric, PySpark ETL pipelines, Delta Lake, Azure Data Factory, and advanced Power BI with optimised DAX and Row-Level Security.</p>
-        <p>I've reduced pipeline refresh times by up to 50%, brought data accuracy to ~99% through reconciliation and quarantine logic, and surfaced ₹380+ Crore in healthcare financial analytics across production systems.</p>
-        <blockquote class="summary-quote">"Build pipelines that don't break at 3am, dashboards that tell stories, and data models that make DBAs nod respectfully."</blockquote>
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="mtrack">
+    <span class="mitem">Power BI</span><span class="mitem">Microsoft Fabric</span><span class="mitem">DAX</span><span class="mitem">PySpark</span><span class="mitem">Delta Lake</span><span class="mitem">Medallion Architecture</span><span class="mitem">Azure Data Factory</span><span class="mitem">Healthcare Analytics</span><span class="mitem">Star Schema</span><span class="mitem">Row-Level Security</span><span class="mitem">ETL / ELT</span><span class="mitem">Informatica</span><span class="mitem">SQL</span><span class="mitem">Power BI</span><span class="mitem">Microsoft Fabric</span><span class="mitem">DAX</span><span class="mitem">PySpark</span><span class="mitem">Delta Lake</span><span class="mitem">Medallion Architecture</span><span class="mitem">Azure Data Factory</span><span class="mitem">Healthcare Analytics</span><span class="mitem">Star Schema</span><span class="mitem">Row-Level Security</span><span class="mitem">ETL / ELT</span><span class="mitem">Informatica</span><span class="mitem">SQL</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="s about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="s-eye">About me</p>
+        <h2 class="s-title">I don't just build<br>dashboards. I build<br><em>truth</em>.</h2>
+        <div class="about-body">
+          <p>I'm <strong>Trinkesh Nimsarkar</strong> — a Senior BI Developer at <strong>Konverge.AI</strong> with 4+ years specialising in healthcare analytics. I own the full data journey: raw source systems → Bronze–Silver–Gold Lakehouse → Power BI dashboards that executives act on.</p>
+          <p>My obsession is accuracy and speed. <strong>~99% data accuracy</strong> via reconciliation engines, pipeline refresh times cut by up to <strong>60%</strong>, and semantic models so optimised they feel instant.</p>
+        </div>
+        <div class="quote-card">
+          <p>Build pipelines that don't break at 3am, dashboards that tell stories, and data models that make DBAs nod respectfully.</p>
+          <footer>— Trinkesh Nimsarkar</footer>
+        </div>
       </div>
-      <div class="summary-sidebar">
-        <div class="detail-row"><span class="dk">Name</span><span class="dv">Trinkesh Nimsarkar</span></div>
-        <div class="detail-row"><span class="dk">Current role</span><span class="dv">Senior BI Developer</span></div>
-        <div class="detail-row"><span class="dk">Company</span><span class="dv">Konverge.AI</span></div>
-        <div class="detail-row"><span class="dk">Since</span><span class="dv">January 2022</span></div>
-        <div class="detail-row"><span class="dk">Domain</span><span class="dv">Healthcare Analytics</span></div>
-        <div class="detail-row"><span class="dk">Location</span><span class="dv">Nagpur, Maharashtra 🇮🇳</span></div>
-        <div class="detail-row"><span class="dk">Email</span><span class="dv">trinkeshn@gmail.com</span></div>
-        <div class="detail-row"><span class="dk">Phone</span><span class="dv">+91 70287 05768</span></div>
-        <div class="detail-row"><span class="dk">Status</span><span class="dv available">Open to opportunities</span></div>
+      <div class="reveal d1">
+        <div class="info-stack">
+          <div class="irow"><span class="ik">Role</span><span class="iv">Senior BI Developer</span></div>
+          <div class="irow"><span class="ik">Company</span><span class="iv">Konverge.AI</span></div>
+          <div class="irow"><span class="ik">Since</span><span class="iv">January 2022</span></div>
+          <div class="irow"><span class="ik">Domain</span><span class="iv">Healthcare Analytics</span></div>
+          <div class="irow"><span class="ik">Location</span><span class="iv">Nagpur, India 🇮🇳</span></div>
+          <div class="irow"><span class="ik">Email</span><span class="iv">trinkeshn@gmail.com</span></div>
+          <div class="irow"><span class="ik">Phone</span><span class="iv">+91 70287 05768</span></div>
+          <div class="irow"><span class="ik">Status</span><span class="iv green">● Open to work</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- WHAT I DO -->
-<section id="whatido">
-  <div class="container">
-    <p class="sec-eye">What I do</p>
-    <p class="sec-title">End-to-end data solutions</p>
-    <div class="what-grid">
-      <div class="what-card">
-        <span class="what-icon">📊</span>
-        <p class="what-title">Power BI Development</p>
-        <p class="what-desc">30+ production dashboards with advanced DAX, optimised semantic models, KPIs, incremental refresh, and Row-Level Security for healthcare clients.</p>
-      </div>
-      <div class="what-card">
-        <span class="what-icon">⚙️</span>
-        <p class="what-title">Data Engineering</p>
-        <p class="what-desc">ETL/ELT pipelines on Microsoft Fabric using Dataflows Gen2, Fabric Pipelines, Azure Data Factory, and PySpark for batch and near-real-time processing.</p>
-      </div>
-      <div class="what-card">
-        <span class="what-icon">🏗️</span>
-        <p class="what-title">Lakehouse Architecture</p>
-        <p class="what-desc">Bronze–Silver–Gold Medallion Architecture on Delta Lake with dimensional star schema models, watermark-based incremental loads, and automated alerting.</p>
-      </div>
-      <div class="what-card">
-        <span class="what-icon">🔒</span>
-        <p class="what-title">Data Governance & RLS</p>
-        <p class="what-desc">Row-Level Security for department, finance, and clinical roles. Data quality frameworks with reconciliation engines and quarantine logic achieving ~99% accuracy.</p>
-      </div>
-      <div class="what-card">
-        <span class="what-icon">🔍</span>
-        <p class="what-title">SQL & Query Optimisation</p>
-        <p class="what-desc">Advanced SQL with CTEs, window functions, and performance tuning. Informatica ETL using Aggregator, Joiner, Lookup, and SCD transformations.</p>
-      </div>
-      <div class="what-card">
-        <span class="what-icon">🏥</span>
-        <p class="what-title">Healthcare Analytics</p>
-        <p class="what-desc">Domain expertise in hospital operations, claims & billing, patient admissions, clinical quality (readmission, mortality), and revenue analytics.</p>
-      </div>
+<section class="s" id="whatido">
+  <div class="wrap">
+    <p class="s-eye reveal">What I do</p>
+    <h2 class="s-title reveal">Six things I do<br>better than most</h2>
+    <div class="srv-grid reveal">
+      <div class="srv"><div class="srv-n">01</div><span class="srv-icon">📊</span><p class="srv-t">Power BI Development</p><p class="srv-d">30+ production dashboards with advanced DAX, semantic models, incremental refresh, and RLS — built for healthcare executives and clinical teams who need answers fast.</p></div>
+      <div class="srv"><div class="srv-n">02</div><span class="srv-icon">⚙️</span><p class="srv-t">Data Pipeline Engineering</p><p class="srv-d">End-to-end ETL/ELT on Microsoft Fabric using Dataflows Gen2, Fabric Pipelines, ADF, and PySpark for batch and near-real-time healthcare data processing.</p></div>
+      <div class="srv"><div class="srv-n">03</div><span class="srv-icon">🏗️</span><p class="srv-t">Lakehouse Architecture</p><p class="srv-d">Bronze → Silver → Gold Medallion Architecture on Delta Lake with star schema models, watermark incremental loads, and automated alerting baked in.</p></div>
+      <div class="srv"><div class="srv-n">04</div><span class="srv-icon">🔒</span><p class="srv-t">Data Governance & RLS</p><p class="srv-d">Row-Level Security for clinical, department, and finance roles. Multi-layer data quality frameworks with reconciliation engines achieving ~99% accuracy.</p></div>
+      <div class="srv"><div class="srv-n">05</div><span class="srv-icon">🏥</span><p class="srv-t">Healthcare Analytics</p><p class="srv-d">Deep domain expertise: hospital ops, claims & billing, patient admissions, clinical quality (readmission, mortality), bed occupancy, revenue — ₹380 Cr+ surfaced.</p></div>
+      <div class="srv"><div class="srv-n">06</div><span class="srv-icon">🔍</span><p class="srv-t">SQL & Query Optimisation</p><p class="srv-d">Advanced SQL with CTEs, window functions, and performance tuning. Informatica ETL with Aggregator, Joiner, Lookup, SCD — and legacy SQL Server to Fabric migrations.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="s nums" id="impact">
+  <div class="wrap">
+    <p class="s-eye">Impact</p>
+    <h2 class="s-title reveal" style="color:#fff">Numbers I'm<br><em style="color:rgba(255,255,255,.55)">proud of</em></h2>
+    <div class="nums-grid reveal">
+      <div class="nc"><div class="nc-ghost">60%</div><div class="nc-num">~60<span>%</span></div><div class="nc-lbl">Pipeline refresh cut</div><div class="nc-desc">Hospital Lakehouse — optimised PySpark &amp; incremental load strategy</div></div>
+      <div class="nc"><div class="nc-ghost">99%</div><div class="nc-num">~99<span>%</span></div><div class="nc-lbl">Data accuracy</div><div class="nc-desc">Reconciliation engines, quarantine logic &amp; multi-layer DQ checks</div></div>
+      <div class="nc"><div class="nc-ghost">40%</div><div class="nc-num">~40<span>%</span></div><div class="nc-lbl">Latency reduction</div><div class="nc-desc">Optimised DAX &amp; semantic models in production environment</div></div>
+      <div class="nc"><div class="nc-ghost">50%</div><div class="nc-num">30–50<span style="font-size:1.2rem">%</span></div><div class="nc-lbl">ETL speedup</div><div class="nc-desc">Across Fabric Pipelines, ADF &amp; PySpark batch workloads</div></div>
     </div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section class="skills" id="skills">
-  <div class="container">
-    <p class="sec-eye">Technical skills</p>
-    <p class="sec-title">Tools &amp; technologies</p>
-    <div class="skills-wrap">
-      <div class="skills-category">
-        <span class="skill-cat-label">BI &amp; Visualization</span>
-        <div class="skill-pills">
-          <span class="pill strong">Power BI</span>
-          <span class="pill strong">DAX</span>
-          <span class="pill strong">Semantic Models</span>
-          <span class="pill strong">Row-Level Security</span>
-          <span class="pill">KPI Dashboards</span>
-          <span class="pill">Incremental Refresh</span>
-          <span class="pill">Healthcare Analytics</span>
+<section class="s skills-bg" id="skills">
+  <div class="wrap">
+    <div class="skills-layout">
+      <div class="reveal">
+        <p class="s-eye">Skills</p>
+        <h2 class="s-title">My full<br>tech <em>stack</em></h2>
+        <div class="skills-intro">
+          <p>Core skills highlighted in blue. Grouped exactly as on my resume. Everything I reach for regularly.</p>
         </div>
       </div>
-      <div class="skills-category">
-        <span class="skill-cat-label">Data Engineering</span>
-        <div class="skill-pills">
-          <span class="pill strong">Microsoft Fabric</span>
-          <span class="pill strong">Azure Data Factory</span>
-          <span class="pill strong">PySpark</span>
-          <span class="pill strong">Delta Lake</span>
-          <span class="pill">Informatica ETL</span>
-          <span class="pill">Dataflows Gen2</span>
-          <span class="pill">Fabric Pipelines</span>
-        </div>
-      </div>
-      <div class="skills-category">
-        <span class="skill-cat-label">Cloud &amp; Architecture</span>
-        <div class="skill-pills">
-          <span class="pill strong">Medallion Architecture</span>
-          <span class="pill strong">Star Schema</span>
-          <span class="pill">Bronze / Silver / Gold</span>
-          <span class="pill">Lakehouse</span>
-          <span class="pill">ETL / ELT</span>
-          <span class="pill">Dimensional Modelling</span>
-          <span class="pill">Fact &amp; Dimension Tables</span>
-        </div>
-      </div>
-      <div class="skills-category">
-        <span class="skill-cat-label">Databases &amp; Query</span>
-        <div class="skill-pills">
-          <span class="pill strong">SQL</span>
-          <span class="pill">CTEs</span>
-          <span class="pill">Window Functions</span>
-          <span class="pill">Query Tuning</span>
-          <span class="pill">T-SQL</span>
-          <span class="pill">SQL Server</span>
-        </div>
-      </div>
-      <div class="skills-category">
-        <span class="skill-cat-label">Tools &amp; Others</span>
-        <div class="skill-pills">
-          <span class="pill">Git</span>
-          <span class="pill">Jira</span>
-          <span class="pill">Python</span>
-          <span class="pill">Jupyter Notebooks</span>
-          <span class="pill">UAT &amp; Stakeholder Mgmt</span>
-        </div>
+      <div class="reveal d1">
+        <div class="sg"><div class="sg-head">BI &amp; Visualization</div><div class="pills"><span class="pl c">Power BI</span><span class="pl c">DAX</span><span class="pl c">Semantic Models</span><span class="pl c">Row-Level Security</span><span class="pl s">KPI Dashboards</span><span class="pl s">Incremental Refresh</span><span class="pl s">Healthcare Analytics</span></div></div>
+        <div class="sg"><div class="sg-head">Data Engineering</div><div class="pills"><span class="pl c">Microsoft Fabric</span><span class="pl c">Azure Data Factory</span><span class="pl c">PySpark</span><span class="pl c">Delta Lake</span><span class="pl s">Informatica ETL</span><span class="pl s">Dataflows Gen2</span><span class="pl s">Fabric Pipelines</span></div></div>
+        <div class="sg"><div class="sg-head">Cloud &amp; Architecture</div><div class="pills"><span class="pl c">Medallion Architecture</span><span class="pl c">Star Schema</span><span class="pl s">Bronze / Silver / Gold</span><span class="pl s">Lakehouse</span><span class="pl s">ETL / ELT</span><span class="pl s">Dimensional Modelling</span></div></div>
+        <div class="sg"><div class="sg-head">Databases &amp; Query</div><div class="pills"><span class="pl c">SQL</span><span class="pl s">CTEs</span><span class="pl s">Window Functions</span><span class="pl s">Query Tuning</span><span class="pl s">T-SQL</span><span class="pl s">SQL Server</span></div></div>
+        <div class="sg"><div class="sg-head">Tools &amp; Others</div><div class="pills"><span class="pl s">Git</span><span class="pl s">Jira</span><span class="pl s">Python</span><span class="pl s">Jupyter</span><span class="pl s">Stakeholder Mgmt</span><span class="pl s">UAT</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <p class="sec-eye">Projects</p>
-    <p class="sec-title">Selected work</p>
+<section class="s" id="projects">
+  <div class="wrap">
+    <p class="s-eye reveal">Projects</p>
+    <h2 class="s-title reveal">Work that<br>actually <em>shipped</em></h2>
+    <div class="proj-stack">
 
-    <!-- Project 01 -->
-    <div class="project-item">
-      <span class="proj-num">01</span>
-      <div>
-        <div class="proj-header">
-          <h3>Hospital Operations Analytics Lakehouse</h3>
-          <span class="proj-period">Feb 2026 – Mar 2026</span>
+      <div class="pcard reveal">
+        <div class="pcard-top">
+          <div><p class="pcard-idx">Project 01</p><p class="pcard-title">Hospital Operations<br>Analytics Lakehouse</p></div>
+          <span class="pperiod">Feb – Mar 2026</span>
         </div>
-        <p class="proj-desc">Complete end-to-end healthcare analytics Lakehouse on Microsoft Fabric with Bronze-Silver-Gold Medallion Architecture and Delta Lake storage, covering patient admissions, billing, bed occupancy, and clinical quality metrics.</p>
-        <ul class="proj-bullets">
-          <li>Architected Medallion Lakehouse on Microsoft Fabric (Bronze → Silver → Gold) with Delta Lake storage.</li>
-          <li>Built PySpark ETL pipelines ingesting and transforming 22,000+ records across patient, admission, billing, and bed occupancy datasets.</li>
-          <li>Designed Star Schema (4 dims + 3 facts + 3 aggregates) with fully automated Fabric Pipeline — ForEach loops, watermark-based incremental load, and email alerting.</li>
-          <li>Delivered 5-page Power BI dashboard with 30+ DAX measures: admissions KPIs, clinical quality (readmission, mortality), revenue analytics (₹51.4 Cr), and real-time bed occupancy.</li>
-          <li>Implemented RLS for department and finance roles; ~60% pipeline refresh reduction and ~99% data accuracy via reconciliation checks and quarantine logic.</li>
+        <p class="pcard-desc">Complete end-to-end healthcare Lakehouse on Microsoft Fabric — Bronze ingestion through Gold-layer Power BI dashboards — covering patient admissions, billing, bed occupancy, and clinical quality metrics.</p>
+        <ul class="pbullets">
+          <li>Architected Bronze→Silver→Gold Medallion Lakehouse on Delta Lake with automated Fabric Pipeline — ForEach loops, watermark incremental load, email alerting.</li>
+          <li>Built <strong>PySpark ETL</strong> transforming 22,000+ records across patient, admission, billing &amp; bed occupancy datasets.</li>
+          <li>Designed Star Schema (4 dims + 3 facts + 3 aggregates) feeding 5-page Power BI dashboard with <strong>30+ DAX measures</strong>.</li>
+          <li>RLS for department &amp; finance roles; <strong>~60% refresh reduction</strong> &amp; <strong>~99% accuracy</strong> via reconciliation &amp; quarantine logic.</li>
         </ul>
-        <div class="proj-metrics">
-          <div class="metric"><span class="mval">22K+</span><span class="mlbl">Records</span></div>
-          <div class="metric"><span class="mval">₹51.4 Cr</span><span class="mlbl">Revenue surfaced</span></div>
-          <div class="metric"><span class="mval">~60%</span><span class="mlbl">Faster refresh</span></div>
-          <div class="metric"><span class="mval">~99%</span><span class="mlbl">Data accuracy</span></div>
-          <div class="metric"><span class="mval">30+</span><span class="mlbl">DAX measures</span></div>
+        <div class="pmetrics">
+          <div class="pm"><span class="pmv">22K+</span><span class="pml">Records</span></div>
+          <div class="pm"><span class="pmv">₹51.4Cr</span><span class="pml">Revenue</span></div>
+          <div class="pm"><span class="pmv">~60%</span><span class="pml">Faster refresh</span></div>
+          <div class="pm"><span class="pmv">~99%</span><span class="pml">Accuracy</span></div>
+          <div class="pm"><span class="pmv">30+</span><span class="pml">DAX measures</span></div>
         </div>
-        <div class="proj-tags">
-          <span class="tag">Microsoft Fabric</span><span class="tag">PySpark</span><span class="tag">Delta Lake</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">RLS</span><span class="tag">Medallion</span><span class="tag">Star Schema</span>
+        <div class="pcard-foot">
+          <div class="ptags"><span class="ptag">Fabric</span><span class="ptag">PySpark</span><span class="ptag">Delta Lake</span><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">RLS</span><span class="ptag">Star Schema</span></div>
+          <a href="https://github.com/Trinkesh" target="_blank" class="plink">GitHub →</a>
         </div>
-        <a href="https://github.com/Trinkesh" class="proj-link" target="_blank">View on GitHub →</a>
       </div>
-    </div>
 
-    <!-- Project 02 -->
-    <div class="project-item">
-      <span class="proj-num">02</span>
-      <div>
-        <div class="proj-header">
-          <h3>Claims &amp; Billing Analytics Pipeline</h3>
-          <span class="proj-period">Nov 2025 – Dec 2025</span>
+      <div class="pcard reveal d1">
+        <div class="pcard-top">
+          <div><p class="pcard-idx">Project 02</p><p class="pcard-title">Claims &amp; Billing<br>Analytics Pipeline</p></div>
+          <span class="pperiod">Nov – Dec 2025</span>
         </div>
-        <p class="proj-desc">End-to-end healthcare claims processing pipeline on Microsoft Fabric with Bronze referential integrity checks, a 4-check reconciliation engine, and a 6-check anomaly detection engine for fraud monitoring.</p>
-        <ul class="proj-bullets">
-          <li>Engineered pipeline ingesting 6 source tables (81K+ records, ₹380 Cr billed) with Bronze referential integrity checks: duplicate claim detection and orphan payment validation.</li>
-          <li>Built Reconciliation Engine (4 checks: billed vs line items, approved vs paid, duplicate claims, missing lines).</li>
-          <li>Built Anomaly Detection Engine (6 checks: high-value outliers, fraud flags, sum insured breaches, rapid repeat claims).</li>
-          <li>Delivered Gold Star Schema (5 dims + 3 facts + 4 aggregates) and 5-page Power BI dashboard with 40+ DAX measures covering claim volume, financial reconciliation, fraud monitoring, TAT analysis, and provider analytics.</li>
+        <p class="pcard-desc">End-to-end healthcare claims pipeline on Microsoft Fabric — ₹380 Crore across 81K+ records — with a reconciliation engine, anomaly detection, and fraud monitoring layer.</p>
+        <ul class="pbullets">
+          <li>Ingested 6 source tables (81K+ records, ₹380 Cr) with Bronze referential integrity: duplicate claim detection &amp; orphan payment validation.</li>
+          <li>Built <strong>Reconciliation Engine</strong> (4 checks) and <strong>Anomaly Detection Engine</strong> (6 fraud checks including high-value outliers &amp; sum insured breaches).</li>
+          <li>Delivered Gold Star Schema (5 dims + 3 facts + 4 aggregates) and 5-page Power BI dashboard with <strong>40+ DAX measures</strong>.</li>
         </ul>
-        <div class="proj-metrics">
-          <div class="metric"><span class="mval">81K+</span><span class="mlbl">Records</span></div>
-          <div class="metric"><span class="mval">₹380 Cr</span><span class="mlbl">Billed value</span></div>
-          <div class="metric"><span class="mval">40+</span><span class="mlbl">DAX measures</span></div>
-          <div class="metric"><span class="mval">10</span><span class="mlbl">Quality checks</span></div>
+        <div class="pmetrics">
+          <div class="pm"><span class="pmv">81K+</span><span class="pml">Records</span></div>
+          <div class="pm"><span class="pmv">₹380Cr</span><span class="pml">Billed value</span></div>
+          <div class="pm"><span class="pmv">40+</span><span class="pml">DAX measures</span></div>
+          <div class="pm"><span class="pmv">10</span><span class="pml">Quality checks</span></div>
         </div>
-        <div class="proj-tags">
-          <span class="tag">Microsoft Fabric</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Star Schema</span><span class="tag">Fraud Detection</span><span class="tag">Reconciliation</span><span class="tag">SQL</span>
+        <div class="pcard-foot">
+          <div class="ptags"><span class="ptag">Fabric</span><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Star Schema</span><span class="ptag">Fraud Detection</span><span class="ptag">Reconciliation</span></div>
+          <a href="https://github.com/Trinkesh" target="_blank" class="plink">GitHub →</a>
         </div>
-        <a href="https://github.com/Trinkesh" class="proj-link" target="_blank">View on GitHub →</a>
       </div>
-    </div>
 
-    <!-- Project 03 -->
-    <div class="project-item">
-      <span class="proj-num">03</span>
-      <div>
-        <div class="proj-header">
-          <h3>Pump Station Surveillance Agent</h3>
-          <span class="proj-period">Ongoing</span>
+      <div class="pcard reveal d2">
+        <div class="pcard-top">
+          <div><p class="pcard-idx">Project 03</p><p class="pcard-title">Pump Station<br>Surveillance Agent</p></div>
+          <span class="pperiod">Ongoing</span>
         </div>
-        <p class="proj-desc">IoT sensor monitoring system tracking wet-well levels, pump runtime imbalance, and overflow risk KPIs across 5 pumping stations, built on Microsoft Fabric, TimescaleDB/PostgreSQL, and Azure.</p>
-        <ul class="proj-bullets">
-          <li>Designed PostgreSQL/TimescaleDB schema for IoT time-series sensor data across 5 named stations identified by UUIDs.</li>
-          <li>Built Azure ingestion pipeline (ADF + Blob Storage) with Fabric Pipelines and Dataflows Gen2 for ETL and transformation.</li>
-          <li>Developing KPI SQL query library (wet-well overflow risk, pump runtime imbalance index, duty share) feeding Power BI operational dashboards.</li>
+        <p class="pcard-desc">IoT monitoring system across 5 pumping stations — tracking wet-well levels, pump runtime imbalance, and overflow risk in near real-time via Azure pipelines and Power BI operational dashboards.</p>
+        <ul class="pbullets">
+          <li>Designed <strong>PostgreSQL / TimescaleDB</strong> time-series schema for IoT sensor data across 5 stations.</li>
+          <li>Built Azure ingestion pipeline (ADF + Blob Storage) with Fabric Pipelines and Dataflows Gen2.</li>
+          <li>Developing KPI SQL library (overflow risk, runtime imbalance index, duty share) feeding Power BI dashboards.</li>
         </ul>
-        <div class="proj-tags">
-          <span class="tag">Microsoft Fabric</span><span class="tag">TimescaleDB</span><span class="tag">PostgreSQL</span><span class="tag">Azure</span><span class="tag">IoT</span><span class="tag">Power BI</span><span class="tag">ADF</span>
+        <div class="pcard-foot">
+          <div class="ptags"><span class="ptag">Fabric</span><span class="ptag">TimescaleDB</span><span class="ptag">PostgreSQL</span><span class="ptag">Azure</span><span class="ptag">IoT</span><span class="ptag">Power BI</span></div>
+          <a href="https://github.com/Trinkesh" target="_blank" class="plink">GitHub →</a>
         </div>
-        <a href="https://github.com/Trinkesh" class="proj-link" target="_blank">View on GitHub →</a>
       </div>
-    </div>
 
-    <!-- Project 04 -->
-    <div class="project-item">
-      <span class="proj-num">04</span>
-      <div>
-        <div class="proj-header">
-          <h3>Heart Disease Prediction Analysis</h3>
-          <span class="proj-period">Personal project</span>
-        </div>
-        <p class="proj-desc">Machine learning model for heart disease prediction with end-to-end EDA, feature engineering, model training, and visualisation using Python and Jupyter Notebooks.</p>
-        <div class="proj-tags">
-          <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Jupyter</span><span class="tag">scikit-learn</span><span class="tag">Data Viz</span>
-        </div>
-        <a href="https://github.com/Trinkesh/Heart-Disease-Prediction-Analysis" class="proj-link" target="_blank">View on GitHub →</a>
-      </div>
     </div>
-
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section class="exp" id="experience">
-  <div class="container">
-    <p class="sec-eye">Experience</p>
-    <p class="sec-title">Work history</p>
-
-    <div class="exp-item">
-      <div class="exp-meta">
-        <span class="exp-date">Jan 2022 – Present</span>
-        <span class="exp-loc">Nagpur, India</span>
-        <span class="exp-badge">3+ years</span>
-      </div>
-      <div>
-        <p class="exp-title">Senior BI Developer</p>
-        <p class="exp-company">Konverge.AI</p>
-        <p class="exp-domain">Healthcare Analytics · Microsoft Fabric · Power BI</p>
-        <p class="exp-desc">Responsible for end-to-end Power BI and Microsoft Fabric analytics solutions in a healthcare environment. Work spans data ingestion, pipeline engineering, semantic modelling, and production dashboard delivery — from stakeholder requirements through UAT to production support.</p>
-        <ul class="exp-bullets">
-          <li>Migrated legacy SQL Server reporting to Fabric Lakehouse, enabling governed, analytics-ready datasets and improved scalability.</li>
-          <li>Built ETL/ELT pipelines using Fabric Dataflows Gen2, Fabric Pipelines, Azure Data Factory, and PySpark for batch and near-real-time processing.</li>
-          <li>Implemented Bronze–Silver–Gold Medallion Architecture for standardised ingestion, transformation, and consumption layers.</li>
-          <li>Developed dimensional data models (fact/dimension tables, star schemas) using Delta Lake.</li>
-          <li>Created 30+ production Power BI dashboards with optimised DAX, KPIs, RLS, incremental refresh, and semantic models.</li>
-          <li>Reduced reporting latency by ~40% through optimised data models and refresh strategies.</li>
-          <li>Improved data accuracy to ~99% by implementing data quality, validation, and reconciliation checks.</li>
-          <li>Optimised pipeline performance, reducing refresh times by 30–50%.</li>
-          <li>Executed data migrations using Informatica ETL (Aggregator, Joiner, Lookup, SCD).</li>
-          <li>Wrote advanced SQL (CTEs, window functions, joins) and performed query performance tuning.</li>
-          <li>Collaborated with business stakeholders for requirements, UAT, deployment, and production support.</li>
-        </ul>
-        <div class="impact-row">
-          <div class="metric"><span class="mval">~40%</span><span class="mlbl">Latency reduction</span></div>
-          <div class="metric"><span class="mval">30–50%</span><span class="mlbl">Pipeline speedup</span></div>
-          <div class="metric"><span class="mval">~99%</span><span class="mlbl">Data accuracy</span></div>
-          <div class="metric"><span class="mval">30+</span><span class="mlbl">Dashboards live</span></div>
+<section class="s exp-bg" id="experience">
+  <div class="wrap">
+    <p class="s-eye reveal">Experience</p>
+    <h2 class="s-title reveal">Where I've<br><em>built</em> things</h2>
+    <div class="reveal" style="margin-top:3rem">
+      <div class="exp-card">
+        <div class="exp-banner">
+          <div class="exp-banner-left">
+            <p class="exp-co">Konverge.AI</p>
+            <p class="exp-role">Senior BI Developer</p>
+            <span class="exp-tag">Jan 2022 – Present · Nagpur · 3+ years</span>
+          </div>
+          <div class="exp-kpis">
+            <div class="ek"><span class="ek-v">~40%</span><span class="ek-l">Latency cut</span></div>
+            <div class="ek"><span class="ek-v">~99%</span><span class="ek-l">Accuracy</span></div>
+            <div class="ek"><span class="ek-v">30+</span><span class="ek-l">Dashboards</span></div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-domain">
+            <span class="dchip">Healthcare Analytics</span>
+            <span class="dchip">Microsoft Fabric</span>
+            <span class="dchip">Power BI</span>
+          </div>
+          <p class="exp-intro">Responsible for end-to-end Power BI and Microsoft Fabric analytics in a healthcare environment — from requirements and data ingestion through pipeline engineering, semantic modelling, UAT, and production support.</p>
+          <ul class="exp-list">
+            <li>Migrated legacy SQL Server reporting to <strong>Fabric Lakehouse</strong> — governed, analytics-ready datasets at scale.</li>
+            <li>Built ETL/ELT pipelines using <strong>Fabric Dataflows Gen2, ADF, and PySpark</strong> for batch and near-real-time processing.</li>
+            <li>Implemented <strong>Bronze–Silver–Gold Medallion Architecture</strong> for standardised ingestion, transformation, and consumption.</li>
+            <li>Developed dimensional models (fact/dim tables, star schemas) using <strong>Delta Lake</strong>.</li>
+            <li>Created <strong>30+ production Power BI dashboards</strong> with optimised DAX, KPIs, RLS, incremental refresh, and semantic models.</li>
+            <li>Reduced reporting latency by <strong>~40%</strong> through optimised data models and refresh strategies.</li>
+            <li>Improved data accuracy to <strong>~99%</strong> via quality checks, validation, and reconciliation logic.</li>
+            <li>Optimised pipeline performance — <strong>30–50% faster</strong> refresh across Fabric &amp; ADF workloads.</li>
+            <li>Executed data migrations using <strong>Informatica ETL</strong> (Aggregator, Joiner, Lookup, SCD).</li>
+            <li>Advanced SQL — CTEs, window functions, joins, and query performance tuning.</li>
+            <li>Collaborated with stakeholders for requirements, UAT, deployment, and production support.</li>
+          </ul>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="container">
-    <p class="sec-eye">Certifications</p>
-    <p class="sec-title">Microsoft credentials</p>
+<section class="s" id="certs">
+  <div class="wrap">
+    <p class="s-eye reveal">Certifications</p>
+    <h2 class="s-title reveal">3× Microsoft<br><em>Certified</em></h2>
     <div class="cert-grid">
-      <div class="cert-card">
-        <span class="cert-badge">Microsoft Certified</span>
-        <p class="cert-code">PL-300</p>
-        <p class="cert-name">Power BI Data Analyst Associate</p>
-        <span class="cert-status">✓ Certified</span>
+      <div class="ccard reveal">
+        <div class="ccard-ms"><div class="ms-sq-grid"><div class="ms-sq" style="background:#f35325"></div><div class="ms-sq" style="background:#81bc06"></div><div class="ms-sq" style="background:#05a6f0"></div><div class="ms-sq" style="background:#ffba08"></div></div><span class="ccard-certified">Microsoft Certified</span></div>
+        <p class="ccode">PL-300</p><p class="cname">Power BI Data Analyst Associate</p>
+        <span class="cbadge">✓ Active</span>
       </div>
-      <div class="cert-card">
-        <span class="cert-badge">Microsoft Certified</span>
-        <p class="cert-code">DP-600</p>
-        <p class="cert-name">Fabric Analytics Engineer Associate</p>
-        <span class="cert-status">✓ Certified</span>
+      <div class="ccard reveal d1">
+        <div class="ccard-ms"><div class="ms-sq-grid"><div class="ms-sq" style="background:#f35325"></div><div class="ms-sq" style="background:#81bc06"></div><div class="ms-sq" style="background:#05a6f0"></div><div class="ms-sq" style="background:#ffba08"></div></div><span class="ccard-certified">Microsoft Certified</span></div>
+        <p class="ccode">DP-600</p><p class="cname">Fabric Analytics Engineer Associate</p>
+        <span class="cbadge">✓ Active</span>
       </div>
-      <div class="cert-card">
-        <span class="cert-badge">Microsoft Certified</span>
-        <p class="cert-code">DP-700</p>
-        <p class="cert-name">Fabric Data Engineer Associate</p>
-        <span class="cert-status">✓ Certified</span>
+      <div class="ccard reveal d2">
+        <div class="ccard-ms"><div class="ms-sq-grid"><div class="ms-sq" style="background:#f35325"></div><div class="ms-sq" style="background:#81bc06"></div><div class="ms-sq" style="background:#05a6f0"></div><div class="ms-sq" style="background:#ffba08"></div></div><span class="ccard-certified">Microsoft Certified</span></div>
+        <p class="ccode">DP-700</p><p class="cname">Fabric Data Engineer Associate</p>
+        <span class="cbadge">✓ Active</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-text">
-        <p class="sec-eye">Contact</p>
-        <p class="sec-title">Let's work together</p>
-        <p>I'm open to freelance BI projects, full-time data engineering roles, and healthcare analytics consulting. I typically respond within 24 hours.</p>
-        <br />
-        <p style="font-size:0.85rem;color:var(--muted);">Specialised in healthcare analytics, Microsoft Fabric, and Power BI. Open to remote and hybrid opportunities across India and globally.</p>
+<section class="s" id="contact" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="contact-layout">
+      <div class="reveal">
+        <p class="s-eye">Contact</p>
+        <h2 class="s-title">Let's build<br>something<br><em>great.</em></h2>
+        <p class="contact-text" style="display:block;font-size:.97rem;color:var(--ink2);line-height:1.88;margin-bottom:1.1rem">I'm open to <strong>full-time BI &amp; Data Engineering roles</strong>, freelance Power BI projects, and healthcare analytics consulting. Available for remote, hybrid, and on-site opportunities across India and globally.</p>
+        <p style="font-size:.9rem;color:var(--ink3);font-weight:500">Typically respond within 24 hours.</p>
+        <a href="mailto:trinkeshn@gmail.com" class="btn-fill" style="margin-top:2rem;display:inline-block">Send me an email →</a>
       </div>
-      <div class="contact-links">
-        <a href="mailto:trinkeshn@gmail.com" class="contact-row">
-          <div class="cr-icon" style="background:#fdecea;color:#c0392b;">✉</div>
-          <div>
-            <p class="cr-label">Email</p>
-            <p class="cr-val">trinkeshn@gmail.com</p>
-          </div>
+      <div class="contact-links reveal d1">
+        <a href="mailto:trinkeshn@gmail.com" class="cl">
+          <div class="cl-i" style="background:#fdecea;color:#c0392b">✉</div>
+          <div><p class="cl-l">Email</p><p class="cl-v">trinkeshn@gmail.com</p></div>
         </a>
-        <a href="tel:+917028705768" class="contact-row">
-          <div class="cr-icon" style="background:#f0f0f0;color:#444;">✆</div>
-          <div>
-            <p class="cr-label">Phone</p>
-            <p class="cr-val">+91 70287 05768</p>
-          </div>
+        <a href="tel:+917028705768" class="cl">
+          <div class="cl-i" style="background:#f2f2ef;color:#555">✆</div>
+          <div><p class="cl-l">Phone</p><p class="cl-v">+91 70287 05768</p></div>
         </a>
-        <a href="https://www.linkedin.com/in/trinkesh-nimsarkar-8165791b0/" target="_blank" class="contact-row">
-          <div class="cr-icon" style="background:#e8f0f9;color:#0a66c2;">in</div>
-          <div>
-            <p class="cr-label">LinkedIn</p>
-            <p class="cr-val">trinkesh-nimsarkar</p>
-          </div>
+        <a href="https://www.linkedin.com/in/trinkesh-nimsarkar-8165791b0/" target="_blank" class="cl">
+          <div class="cl-i" style="background:#e8f0f9;color:#0a66c2">in</div>
+          <div><p class="cl-l">LinkedIn</p><p class="cl-v">trinkesh-nimsarkar</p></div>
         </a>
-        <a href="https://github.com/Trinkesh" target="_blank" class="contact-row">
-          <div class="cr-icon" style="background:#f4f4f4;color:#111;">&#9670;</div>
-          <div>
-            <p class="cr-label">GitHub</p>
-            <p class="cr-val">github.com/Trinkesh</p>
-          </div>
+        <a href="https://github.com/Trinkesh" target="_blank" class="cl">
+          <div class="cl-i" style="background:#f0f0ec;color:#1a1714">◆</div>
+          <div><p class="cl-l">GitHub</p><p class="cl-v">github.com/Trinkesh</p></div>
         </a>
-        <a href="https://twitter.com/Trinkeshpn" target="_blank" class="contact-row">
-          <div class="cr-icon" style="background:#e8f5fd;color:#1da1f2;">X</div>
-          <div>
-            <p class="cr-label">X (Twitter)</p>
-            <p class="cr-val">@Trinkeshpn</p>
-          </div>
+        <a href="https://twitter.com/Trinkeshpn" target="_blank" class="cl">
+          <div class="cl-i" style="background:#e8f5fd;color:#1da1f2">𝕏</div>
+          <div><p class="cl-l">X / Twitter</p><p class="cl-v">@Trinkeshpn</p></div>
         </a>
-        <a href="https://www.kaggle.com/trinkeshnimsarkar" target="_blank" class="contact-row">
-          <div class="cr-icon" style="background:#e8f5fd;color:#20beff;">K</div>
-          <div>
-            <p class="cr-label">Kaggle</p>
-            <p class="cr-val">trinkeshnimsarkar</p>
-          </div>
+        <a href="https://www.kaggle.com/trinkeshnimsarkar" target="_blank" class="cl">
+          <div class="cl-i" style="background:#e8f5fd;color:#20beff">K</div>
+          <div><p class="cl-l">Kaggle</p><p class="cl-v">trinkeshnimsarkar</p></div>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 Trinkesh Nimsarkar · Senior BI Developer &amp; Microsoft Fabric Engineer</p>
   <p>Hosted free on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
 </footer>
 
+<script>
+// Custom cursor
+const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx-5+'px';cur.style.top=my-5+'px'});
+(function animRing(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx-19+'px';ring.style.top=ry-19+'px';requestAnimationFrame(animRing)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.5)';ring.style.opacity='0'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.opacity='1'});
+});
+
+// Sticky nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+
+// Scroll reveal
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('up');io.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
